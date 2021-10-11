@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
 
     float timer;
     int direction = 1;
+    bool broken = true;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,11 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if (!broken)
+        {
+            return;
+        }
+
         timer = timer - Time.deltaTime;
         if (timer < 0)
         {
@@ -35,6 +41,11 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 position = rigidbody2D.position;
+
+        if (!broken)
+        {
+            return;
+        }
 
         if (vertical)
         {
@@ -57,5 +68,12 @@ public class EnemyController : MonoBehaviour
         RubyController controller = other.gameObject.GetComponent<RubyController>();
 
         if (controller != null) controller.ChangeHealth(-1);
+    }
+
+    public void Fix()
+    {
+        broken = false;
+        rigidbody2D.simulated = false;
+        animator.SetTrigger("Fixed");
     }
 }

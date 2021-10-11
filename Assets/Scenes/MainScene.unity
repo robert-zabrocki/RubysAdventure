@@ -3953,9 +3953,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruby
       objectReference: {fileID: 0}
-    - target: {fileID: 8777001448107141406, guid: 273881c1af54cbc4094ea4ee7e59edc4, type: 3}
-      propertyPath: maxHealth
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 273881c1af54cbc4094ea4ee7e59edc4, type: 3}
